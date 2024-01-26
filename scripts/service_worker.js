@@ -1,11 +1,21 @@
-(async () => {
-  /*
-   * URL of MP3 pronunciation file and Blackbaud User ID associated with name
-   * pronunciation
-   */
-  const mp3Source = 'https://example.com/pronunciation.mp3';
-  const userId = '1234567';
+// run when extension icon clicked
+chrome.action.onClicked.addListener(async (tab) => {
+  if (tab.url.match(/^https:\/\/[^.]+\.myschoolapp.com/i))
+    chrome.scripting.executeScript({
+      injectImmediately: true,
+      target: { tabId: tab.id },
+      world: 'MAIN',
+      function: upload,
+      args: [
+        {
+          mp3Url: 'https://example.com/pronunciation.mp3',
+          userId: '1234567'
+        }
+      ]
+    });
+});
 
+async function upload({ mp3Url, userId }) {
   /*
    * name pronunciation instance
    *
@@ -22,17 +32,24 @@
    * package the mp3 pronunciation as a file with valid metadata (the only
    * part of filename that matters is the extension)
    */
-  const mp3 = await fetch(mp3Source);
+  console.log('fetching mp3');
+  const mp3 = await fetch(mp3Url);
   const body = new FormData();
   body.append(
     'FileContent',
-    new File([await mp3.blob()], 'prounciation.mp3', { type: 'audio/mpeg' })
+    new File([await mp3.blob()], 'pronunciation.mp3', {
+      type: 'audio/mpeg'
+    })
   );
+  console.log('mp3 packaged');
 
   // PUT the MP3 file to Blackbaud for the user
+  console.log('fetching service token');
   const serviceToken = await (
     await fetch(`https://${instance}/api/security/servicetoken?scs=unp`)
   ).json();
+  console.log(serviceToken);
+  console.log('putting mp3');
   const response = await fetch(
     `https://${app}.app.blackbaud.net/namep/v1/usernamepronunciation/${userId}`,
     {
@@ -46,7 +63,5 @@
       body
     }
   );
-
-  // visual confirmation
-  console.log(response);
-})();
+  console.log((await response.text()) || response.status);
+}

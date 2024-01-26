@@ -10,11 +10,12 @@
     "48": "assets/images/logo-48px.png",
     "128": "assets/images/logo-128px.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://*.myschoolapp.com/*"],
-      "js": ["scripts/content.js"],
-      "world": "MAIN"
-    }
-  ]
+  "action": {
+    "default_icon": "assets/images/logo-128px.png"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["https://*.myschoolapp.com/*"],
+  "background": {
+    "service_worker": "scripts/service_worker.js"
+  }
 }
