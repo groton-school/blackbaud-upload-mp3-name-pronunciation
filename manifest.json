@@ -11,9 +11,14 @@
     "128": "assets/images/logo-128px.png"
   },
   "action": {
-    "default_icon": "assets/images/logo-128px.png"
+    "default_icon": {
+      "16": "assets/images/logo-disabled-16px.png",
+      "32": "assets/images/logo-disabled-32px.png",
+      "48": "assets/images/logo-disabled-48px.png",
+      "128": "assets/images/logo-disabled-128px.png"
+    }
   },
-  "permissions": ["scripting"],
+  "permissions": ["scripting", "declarativeContent"],
   "host_permissions": ["https://*.myschoolapp.com/*"],
   "background": {
     "service_worker": "scripts/service_worker.js"
