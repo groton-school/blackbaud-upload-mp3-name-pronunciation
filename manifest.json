@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Upload MP3 Name Pronunciations",
+  "description": "Insert pre-recorded name pronunciations into Blackbaud via the admin UI",
+  "version": "0.1.0",
+  "author": "Seth Battis",
+  "icons": {
+    "16": "assets/images/logo-16px.png",
+    "32": "assets/images/logo-32px.png",
+    "48": "assets/images/logo-48px.png",
+    "128": "assets/images/logo-128px.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.myschoolapp.com/*"],
+      "js": ["scripts/content.js"],
+      "world": "MAIN"
+    }
+  ]
+}
