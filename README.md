@@ -15,7 +15,7 @@ In Chrome, load the unpacked extension from `<project directory>` ([see directio
 
 ## Use
 
-Browse to your instance of Blackbaud's Education management tool (aka MySchoolApp, Education Edge, etc.). Click the extension icon to open the flyout and import your CSV of MP3 urls/Blackbaud user IDs. Click submit. Wait.
+Browse as an administrator to your instance of Blackbaud's Education management tool (aka MySchoolApp, Education Edge, etc.). Click the extension icon to open the flyout and import your CSV of MP3 urls/Blackbaud user IDs. Click submit. Wait.
 
 ## Credits
 
