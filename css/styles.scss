@@ -1,0 +1,45 @@
+.umnptb.scrim {
+  z-index: 10000;
+  backdrop-filter: blur(3px);
+  background: hsla(0, 0%, 50%, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+
+  .content {
+    max-width: 800px;
+    width: 50%;
+    margin: auto;
+    background: white;
+    border: solid 0.1pt gray;
+    border-radius: 1em;
+    padding: 2em;
+    box-shadow: gray 0 0 1em;
+
+    .header {
+      margin-bottom: 5px;
+
+      h1 {
+        margin: 0;
+        font-size: larger;
+        font-weight: bold;
+      }
+    }
+
+    .body {
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+      }
+
+      progress {
+        width: 100%;
+      }
+    }
+  }
+}

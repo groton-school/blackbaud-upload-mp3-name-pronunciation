@@ -10,6 +10,11 @@
     "48": "assets/images/logo-48px.png",
     "128": "assets/images/logo-128px.png"
   },
+  "permissions": ["scripting", "declarativeContent"],
+  "host_permissions": ["https://*.myschoolapp.com/*"],
+  "background": {
+    "service_worker": "scripts/service_worker.js"
+  },
   "action": {
     "default_icon": {
       "16": "assets/images/logo-disabled-16px.png",
@@ -18,9 +23,10 @@
       "128": "assets/images/logo-disabled-128px.png"
     }
   },
-  "permissions": ["scripting", "declarativeContent"],
-  "host_permissions": ["https://*.myschoolapp.com/*"],
-  "background": {
-    "service_worker": "scripts/service_worker.js"
-  }
+  "web_accessible_resources": [
+    {
+      "matches": ["https://*.myschoolapp.com/*"],
+      "resources": ["template.csv"]
+    }
+  ]
 }
