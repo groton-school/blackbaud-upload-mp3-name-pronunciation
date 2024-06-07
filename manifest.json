@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Upload MP3 Name Pronunciations",
   "description": "Insert pre-recorded name pronunciations into Blackbaud via the admin UI",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Seth Battis",
   "icons": {
     "16": "assets/images/logo-16px.png",
